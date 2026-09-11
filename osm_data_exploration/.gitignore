@@ -1,0 +1,10 @@
+cache/*
+outputs/*
+old_notebooks/*
+
+
+
+
+.DS_Store
+**/.DS_Store
+
