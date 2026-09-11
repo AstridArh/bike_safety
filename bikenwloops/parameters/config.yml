@@ -1,0 +1,155 @@
+# Provide the name of the study area/project.
+# This is denmark for all notebooks except for 00
+study_area: denmark
+
+# Denmark is analyzed as a combined study area, specified here.
+# Do not change these values unless you know what you are doing.
+study_area_combined:
+  denmark:
+    - bornholm
+    - funen
+    - jutland
+    - lollandfalster
+    - longland
+    - zealand
+
+# Provide meters per length unit.
+# If lengths are given in m, use 1.
+# If lengths are given in km, use 1000.
+mperunit: 1
+
+# SCENARIO RESTRICTIONS
+# Explore three scenarios:
+# 0: Adult leisure cyclist
+# 1: Family with small children
+# 2: Family with e-bikes
+scenarioid: 0
+
+scenario:
+  - name: "Adult leisure cyclist" # 0
+    name_short: "Adult"
+    # Provide the maximum acceptable gradient, in %.
+    maxslope_limit: 6
+    # Provide the minimum and maximum loop length, in meters.
+    looplength_min: 10000
+    looplength_max: 40000
+  - name: "Family with small children" # 1
+    name_short: "Family"
+    # Provide the maximum acceptable gradient, in %.
+    maxslope_limit: 4
+    # Provide the minimum and maximum loop length, in meters.
+    looplength_min: 5000
+    looplength_max: 20000
+  - name: "Family with e-bikes" # 2
+    name_short: "Family e-bikes"
+    # Provide the maximum acceptable gradient, in %.
+    maxslope_limit: 100
+    # Provide the minimum and maximum loop length, in meters.
+    looplength_min: 10000
+    looplength_max: 40000
+
+# SPECIFICATION PARAMETERS
+# These parameters come from the DKNT specification at:
+# https://www.kystognaturturisme.dk/dansk-kyst-og-naturturisme/vidensbank/metodehaandbog-kommunal-kvalificering-af-danmarks-rekreative-cykelnetvaerk
+# Version: 8.5.2024
+
+# Provide the maximum length acceptable without a water
+# source, in meters.
+waterlength_max: 10000
+
+# Provide the lower and upper limits of face loop lengths,
+# in meters.
+faceloop_limit_lower: 8000
+faceloop_limit_upper: 20000
+faceloop_limit_max: 30000
+
+# Provide the optimal lower and upper limits of link
+# lengths, and the maximal link length, in meters.
+link_limit_lower: 1000
+link_limit_upper: 5000
+link_limit_max: 10000
+
+# TECHNICAL PARAMETERS
+
+# Coordinate reference system
+crs: 25832
+
+# Provide the snap threshold, for snapping POIs to network
+# links, in meters.
+snap_threshold: 250
+
+# Provide the maximum number of nodes in a loop.
+# Above 30 will slow down computations.
+loop_numnode_bound: 30
+
+# Provide the maximum physical length in a loop, in meters.
+# Set to 0 for no limit.
+loop_length_bound: 40000
+
+# Provide whether certain plots will use logarithmic scale.
+plotlogscale: True
+
+# If edge data has a max_slope attribute, set this to True.
+# Otherwise, or for testing purposes, set to False. This
+# will then generate random max_slope values.
+maxslopes_available: True
+
+# If pois files are available, set this to True.
+# Otherwise, or for testing purposes, set to False. This
+# will then generate random poi values.
+pois_available: True
+
+# POI file categories and their filenames
+poi_files:
+  facility: "facility.gpkg"
+  service: "service.gpkg"
+  attraction: "poi.gpkg"
+
+# Provide by how many m to shift Bornholm to east and north
+bornholm_delta:
+  - -220000 # east
+  - 120000 # north
+
+# PLOT PARAMETERS
+# https://colorbrewer2.org
+plotparam:
+  dpi: 96 # constant. do not change.
+  format: "pdf"
+  color:
+    "neutral": "#444444"
+    "dknt_green": "#009F92"
+    "noloop": [1, 0, 0, 1]
+  edge_classification_colors:
+    "below_ideal": "#000000"
+    "ideal_range": "#bdd7e7"
+    "above_ideal": "#3182bd"
+    "too_long": "#de2d26"
+  edge_classification_linewidths:
+    "below_ideal": 1.25
+    "ideal_range": 0.75
+    "above_ideal": 1.25
+    "too_long": 2.5
+  loop_classification_colors:
+    "below_ideal": "#000000"
+    "ideal_range": "#bdd7e7"
+    "above_ideal": "#3182bd"
+    "too_long": "#de2d26"
+    "too_long_vacuous": "#de2d26"
+  maxslope_classification_colors:
+    "easy": "#bdd7e7"
+    "medium": "#fd8d3c"
+    "hard": "#de2d26"
+  maxslope_classification_linewidths:
+    "easy": 0.75
+    "medium": 1
+    "hard": 1.25
+  poidiversity_classification_colors:
+    0: "#de2d26"
+    1: "#6baed6"
+    2: "#3182bd"
+    3: "#08519c"
+  poidiversity_classification_linewidths:
+    0: 1.25
+    1: 0.75
+    2: 0.75
+    3: 0.75
