@@ -1,0 +1,14 @@
+numpy==1.26.4
+pandas==2.2.3
+geopandas==0.14.4
+esda==2.5.1
+pysal==24.1
+splot==1.1.7
+osmnx==1.9.4
+pyrosm==0.6.2
+networkx==3.2.1
+shapely==2.0.1
+scipy==1.13.1
+seaborn==0.13.2
+contextily==1.6.2
+matplotlib==3.8.4
