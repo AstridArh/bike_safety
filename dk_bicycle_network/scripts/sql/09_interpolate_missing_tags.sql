@@ -175,7 +175,7 @@ WHERE
     )
     AND (
         maxspeed IS NULL
-        OR maxspeed IN ('none', 'DK:urban', 'signals')
+        OR maxspeed !~ '^[0-9]+'
     );
 
 UPDATE
