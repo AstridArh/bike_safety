@@ -63,25 +63,25 @@ print("OSM route data load complete!")
 
 # Load OSM data with correct topology to use for OSM routing using osm2po
 subprocess.run(
-    f"java -jar /Users/anev/Library/CloudStorage/Dropbox/ITU/repositories/dk_bicycle_network/osm2po/osm2po-5.5.5/osm2po-core-5.5.5-signed.jar cmd=c prefix=dk {osm_fp}",
+    f"java -jar /Users/astridarhnung/GitHub/bike_safety/dk_bicycle_network/osm2po/osm2po-5.5.5/osm2po-core-5.5.5-signed.jar cmd=c prefix=dk {osm_fp}",
     shell=True,
     check=True,
 )
 
 # Rename paths for osm2po
-new_osm2po_path = "/Users/anev/Library/CloudStorage/Dropbox/ITU/repositories/dk_bicycle_network/scripts/dk_osm2po/"
+new_osm2po_path = "/Users/astridarhnung/GitHub/bike_safety/dk_bicycle_network/scripts/dk_osm2po/"
 
 if os.path.exists(new_osm2po_path):
     shutil.rmtree(new_osm2po_path)
 
 os.rename(
-    "/Users/anev/Library/CloudStorage/Dropbox/ITU/repositories/dk_bicycle_network/scripts/dk/",
+    "/Users/astridarhnung/GitHub/bike_safety/dk_bicycle_network/scripts/dk/",
     new_osm2po_path,
 )
 
 # import into postgres
 subprocess.run(
-    f"psql -h {db_host} -p 5432 -U postgres -d {db_name} -q -f /Users/anev/Library/CloudStorage/Dropbox/ITU/repositories/dk_bicycle_network/scripts/dk_osm2po/dk_2po_4pgr.sql",
+    f"psql -h {db_host} -p 5432 -U postgres -d {db_name} -q -f /Users/astridarhnung/GitHub/bike_safety/dk_bicycle_network/scripts/dk_osm2po/dk_2po_4pgr.sql",
     shell=True,
     check=True,
 )

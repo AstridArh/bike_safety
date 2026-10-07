@@ -11,6 +11,21 @@ ADD
 ADD
     COLUMN surface_temp VARCHAR;
 
+-- treat arrays containing only NULLs as missing values
+UPDATE
+    osm_road_edges
+SET
+    geodk_category = NULL
+WHERE
+    geodk_category = '{NULL}';
+
+UPDATE
+    osm_road_edges
+SET
+    geodk_surface = NULL
+WHERE
+    geodk_surface = '{NULL}';
+
 UPDATE
     osm_road_edges
 SET

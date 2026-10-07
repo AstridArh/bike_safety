@@ -31,7 +31,7 @@ if result == "error":
 
 
 subprocess.run(
-    f"""ogr2ogr -f PostgreSQL "PG:user={db_user} password={db_password} dbname={db_name}" {geodk_fp} -nln vejmidte""",
+    f"""ogr2ogr -f PostgreSQL "PG:user={db_user} password={db_password} dbname={db_name}" {geodk_fp} -nln vejmidte -nlt LINESTRING -explodecollections""",
     shell=True,
     check=True,
 )

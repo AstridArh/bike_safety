@@ -132,10 +132,7 @@ UPDATE
     osm_road_edges
 SET
     maxspeed_assumed = CASE
-        WHEN (
-            maxspeed IS NOT NULL
-            AND maxspeed NOT IN ('none', 'DK:urban', 'signals')
-        ) THEN maxspeed :: INT
+        WHEN maxspeed ~ '^[0-9]+' THEN substring(maxspeed FROM '^[0-9]+') :: INT
         WHEN highway = 'living_street' THEN 15
         WHEN highway IN ('bicycle_road', 'cyclestreet', 'track') THEN 30
         WHEN bicycle_road IN ('yes') THEN 30
