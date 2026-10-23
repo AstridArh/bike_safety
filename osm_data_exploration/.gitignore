@@ -2,10 +2,4 @@ cache/*
 .DS_Store
 **/.DS_Store
 
-# .parquet files:
-outputs/**/*.parquet
-outputs/denmark/*
-
-old_notebooks/*
-
-
+outputs/
