@@ -1,6 +1,8 @@
 # OSM data exploration
 
-Compare the BikeNodePlanner loop networks with OpenStreetMap (OSM) cycling networks, including spatial overlap, lighting, and surface information.
+Compare the BikeNodePlanner loop networks (BNN) with OpenStreetMap (OSM) cycling networks, including spatial overlap, lighting, and surface information.
+
+You have to have run all notebooks in from the folder `bikenwloops` to generate the BNN inputs before notebooks in this folder can be run.
 
 ## Contents
 
@@ -9,13 +11,12 @@ Compare the BikeNodePlanner loop networks with OpenStreetMap (OSM) cycling netwo
 - **`network_plotting.py`** — Shared plotting functions imported by the single-region notebook.
 - **`requirements.txt`** — Recorded Python dependency versions. The current single-region notebook's spatial-index `dwithin` queries require GeoPandas 1.0 or newer; the recorded GeoPandas 0.14.4 pin predates this usage.
 - **`outputs/`** — Regional OSM network caches, saved plots, and cached background images. The shared Denmark OSM download is stored in `outputs/denmark/`.
-- **`cache/`** — Cached OSMnx requests from earlier analyses.
 - **`old_notebooks/`** — Previous exploratory notebooks kept for reference.
 
 ## Run one region
 
 1. Open `one_region_analysis.ipynb` from this folder or the repository root.
-2. Set `SAMPLE` to `bornholm`, `funen`, `zealand`, `jutland`, `longland` (Langeland), or `lollandfalster`.
+2. Set `SAMPLE` to `bornholm` (Bornholm), `funen` (Fyn), `zealand` (Sjælland), `jutland` (Jylland), `longland` (Langeland), or `lollandfalster` (Lolland-Falster).
 3. Choose the matching tolerance and extraction margin in the setup cell, then **Run All**. Run all cells again after changing regions.
 
 Loop inputs must already exist at `../bikenwloops/data/input/<SAMPLE>/network/processed/` as `edges_slope.gpkg` and `nodes.gpkg`. The notebook downloads the Denmark OSM PBF if absent, extracts the selected region, and reuses its cached network on later runs. Internet access is needed for the initial OSM and background-image downloads.
