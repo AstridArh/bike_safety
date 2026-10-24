@@ -28,3 +28,7 @@ Regional results are stored under `outputs/<SAMPLE>/`. Surface imputation is an 
 The single-region notebook defines explicit groups and stable map colours for raw surface tags. Existing project choices for `paved` and `unpaved` are preserved. Ambiguous tags use `other`; absent tags use `missing`, and stretches without a nearby OSM match use `unmatched`. These are project classifications rather than a general OSM standard. A previously unseen tag stops the analysis for review instead of silently becoming missing or using a fallback colour.
 
 Each run writes `outputs/<SAMPLE>/surface_assignments.csv` with the observed OSM tags, their groups, colours, and edge counts. The six-region validation also records loop segment counts and lengths in these files, and writes `outputs/surface_validation_summary.csv`.
+
+## Notebook map display
+
+The `display_map` helper in `surface_analysis.py` displays generated maps as direct HTML rather than Folium's iframe wrapper, and also saves an independent HTML file. After updating a notebook, reopen it and rerun its map cell. If VS Code still hides rich output, check **Workspaces: Manage Workspace Trust** in the Command Palette, or open the saved HTML map in a browser. Notebook signing and VS Code workspace trust are separate settings.
