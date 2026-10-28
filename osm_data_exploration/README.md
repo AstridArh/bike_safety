@@ -6,6 +6,8 @@ You have to have run all notebooks in from the folder `bikenwloops` to generate 
 
 ## Contents
 
+- **`denmark_surface_analysis.ipynb`** — Nationwide overlap and surface analysis using Denmark's `edges.gpkg`, with endpoint markers derived from the edges and the existing national OSM cache.
+
 - **`one_region_analysis.ipynb`** — Analyse one region selected with `SAMPLE`. Includes overlap plots, surface percentages by length, interactive surface maps with topographic/satellite backgrounds, and optional imputation of short missing or unmatched surface segments where both neighbours agree.
 - **`all_regions_analysis.ipynb`** — Earlier analysis organised into separate sections for all six regions, covering network overlap, lighting, and surfaces.
 - **`network_plotting.py`** — Shared plotting functions imported by the single-region notebook.
