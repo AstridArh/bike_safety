@@ -1,4 +1,5 @@
 .DS_Store
 **/.DS_Store
-combine/plots
-combine/data
+combine/data/**
+!combine/data/**/
+!combine/data/**/*.csv
